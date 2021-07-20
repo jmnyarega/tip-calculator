@@ -1,4 +1,4 @@
-import tipCalc from '@/lib/calculator';
+import { tipCalc } from '@/lib/calculator';
 
 describe('Tip Calculator', () => {
   it('total amount/tip per person with percentage tip', () => {

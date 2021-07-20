@@ -1,18 +1,24 @@
 <template>
   <label class="custom">
-    <span v-if="label"> {{label}} </span>
-    <div class="custom__input">
+    <div class="info">
+      <span v-if="label" class="label"> {{label}} </span>
+      <span v-if="error" class="error">{{error}}</span>
+    </div>
+    <div class="custom__input" :class=errors>
       <img
+        v-if="icon"
         :src="require(`../assets/${icon}`)"
         alt="$"
-        v-if="icon"
-      />
+      >
       <input
+        min="0"
         type="number"
-        :placeholder="placeholder"
+        required
         :value="value"
-        @change="change()"
-      />
+        :placeholder="placeholder"
+        :name="name"
+        @change="handleChange"
+      >
     </div>
   </label>
 </template>
@@ -20,21 +26,45 @@
 <script>
 
 export default {
+  model: {
+    event: 'change',
+    prop: 'modelValue',
+  },
   props: {
     label: String,
-    value: String,
     icon: String,
     placeholder: String,
-    change: Function,
+    name: String,
+    value: String,
+    error: String,
+    modelValue: {
+      default: '',
+    },
+  },
+  computed: {
+    errors() {
+      return this.error ? 'custom__input--error' : '';
+    }
+  },
+  methods: {
+    handleChange(evt) {
+      this.$emit('change', evt.target.name, evt.target.value);
+    },
   },
 };
 </script>
 
 <style lang="scss">
 .custom {
+    font-weight: var(--fw-bold);
+    .info {
+      display: flex;
+      justify-content: space-between;
+      .span { padding-bottom: 12px; }
+      .error { color: #E17457; }
+    }
     &__input {
-    margin-top: calc(var(--sm-spacer) / 3);
-    padding: var(--sm-spacer);
+    padding: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,11 +72,14 @@ export default {
 
     border: 2px solid transparent;
     border-radius: calc(var(--border-radius) / 2);
-    background-color: var(--v-light-grayish-cyan);
+    background-color: #F3F9FA;
     color: var(--very-dark-cyan);
     font-weight: var(--fw-bold);
 
     input {
+      font-size: var(--fs-h3);
+      font-weight: inherit;
+      font-family: inherit;
       border: none;
       outline: none;
       text-align: right;
@@ -62,8 +95,13 @@ export default {
 
       -moz-appearance: none;
     }
-    &:focus-within, &:hover {
+    &:not(.custom__input--error):focus-within,
+    &:not(.custom__input--error):hover {
       border: 2px solid var(--strong-cyan);
+    }
+
+    &--error {
+      border: 2px solid #E17457;
     }
   }
 }

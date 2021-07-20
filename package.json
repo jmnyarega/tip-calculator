@@ -41,14 +41,35 @@
     "env": {
       "node": true
     },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/airbnb"
-    ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {},
+    "rules": {
+      "vue/no-async-in-computed-properties": "warn",
+      "vue/no-dupe-keys": "error",
+      "vue/no-reserved-keys": "error",
+      "vue/no-template-key": "error",
+      "vue/no-unused-components": "warn",
+      "vue/no-unused-vars": "error",
+      "vue/no-use-v-if-with-v-for": "error",
+      "vue/require-v-for-key": "warn",
+      "vue/valid-template-root": "warn",
+      "vue/valid-v-model": "warn",
+      "vue/attribute-hyphenation": "warn",
+      "vue/html-closing-bracket-newline": "warn",
+      "vue/html-end-tags": "warn",
+      "vue/html-indent": "warn",
+      "vue/html-self-closing": "error",
+      "vue/no-multi-spaces": "warn",
+      "vue/attributes-order": "warn",
+      "vue/no-confusing-v-for-v-if": "warn",
+      "vue/brace-style": "warn",
+      "vue/camelcase": "warn",
+      "vue/comma-dangle": "warn",
+      "vue/component-definition-name-casing": "warn",
+      "vue/eqeqeq": "warn",
+      "vue/max-len": "warn"
+    },
     "overrides": [
       {
         "files": [
@@ -59,7 +80,8 @@
           "jest": true
         }
       }
-    ]
+    ],
+    "extends": "plugin:vue/essential"
   },
   "browserslist": [
     "> 1%",
@@ -79,3 +101,4 @@
     ]
   }
 }
+
