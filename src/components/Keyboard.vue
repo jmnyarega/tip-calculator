@@ -26,7 +26,7 @@
         />
       </div>
     </div>
-    <div class="people">
+    <div class="number">
       <Input
         label="Number of people"
         icon="icon-person.svg"
@@ -103,32 +103,34 @@ export default {
 </script>
 
 <style lang="scss">
-.select-tip {
-  margin-top: var(--bg-spacer);
+.keyboard {
+  .select-tip {
+    margin-top: var(--bg-spacer);
 
-  &__cta {
-    margin-top: var(--sm-2-spacer);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: var(--sm-1-spacer);
-    align-items: center;
-    @media (min-width: 60em) {
-      grid-template-columns: repeat(3, 1fr);
+    &__cta {
+      margin-top: var(--sm-2-spacer);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: var(--sm-1-spacer);
+      align-items: center;
+      @media (min-width: 60em) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      button:hover, button:focus, &--selected {
+        background-color: var(--strong-cyan);
+        color: var(--very-dark-cyan);
+      }
     }
 
-    button:hover, button:focus, &--selected {
-      background-color: var(--strong-cyan);
-      color: var(--very-dark-cyan);
+    &__text {
+      text-transform: capitalize;
+      font-weight: var(--fw-bold);
     }
-  }
-
-  &__text {
-    text-transform: capitalize;
-    font-weight: var(--fw-bold);
   }
 }
 
-.people {
+.number {
   margin-top: var(--bg-1-spacer);
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="custom">
-    <div class="info">
+    <div class="custom__label">
       <label v-if="label" class="label" :for="name"> {{label}} </label>
       <span v-if="error" class="error">{{error}}</span>
     </div>
@@ -59,7 +59,7 @@ export default {
 .custom {
     font-weight: var(--fw-bold);
 
-    .info {
+    &__label {
       display: flex;
       justify-content: space-between;
       .span { padding-bottom: var(--sm-spacer); }

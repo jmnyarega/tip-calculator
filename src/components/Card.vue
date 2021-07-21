@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="calculator">
     <Keyboard />
     <Screen />
   </div>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-.card {
+.calculator {
   max-width: 57.5rem;
   margin-top: 5.375rem;
   border-radius: var(--border-radius);

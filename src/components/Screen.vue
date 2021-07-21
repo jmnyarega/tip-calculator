@@ -1,7 +1,7 @@
 <template>
   <div class="screen">
 
-    <div>
+    <div class="screen__display">
       <div class="tip">
         <div class="tip__label">
           <p>Tip Amount</p>
