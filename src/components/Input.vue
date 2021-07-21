@@ -1,7 +1,7 @@
 <template>
-  <label class="custom">
+  <div class="custom">
     <div class="info">
-      <span v-if="label" class="label"> {{label}} </span>
+      <label v-if="label" class="label" :for="name"> {{label}} </label>
       <span v-if="error" class="error">{{error}}</span>
     </div>
     <div class="custom__input" :class=errors>
@@ -11,6 +11,7 @@
         alt="$"
       >
       <input
+        :id="name"
         min="0"
         type="number"
         required
@@ -20,7 +21,7 @@
         @change="handleChange"
       >
     </div>
-  </label>
+  </div>
 </template>
 
 <script>
