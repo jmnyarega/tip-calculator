@@ -1,8 +1,8 @@
 <template>
-  <div id="app" class="body">
+  <main id="app">
     <img src="../assets/logo.svg" alt="tip-calculator - Home" class="logo">
     <Card />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -52,16 +52,13 @@ body {
 
  background-color: var(--light-grayish-cyan);
  min-height: 100vh;
+ font-size: var(--fs-base);
+ font-family: var(--ff-default);
 
  @media (min-width: 60em) {
    display: grid;
    place-items: center;
  }
-}
-
-.body {
-  font-size: var(--fs-base);
-  font-family: var(--ff-default);
 }
 
 .logo {
