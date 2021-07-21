@@ -87,6 +87,7 @@ export default {
         text-align: right;
         background-color: inherit;
         color: inherit;
+        appearance: none;
 
         width: 85%;
 
