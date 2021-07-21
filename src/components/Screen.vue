@@ -34,8 +34,8 @@ export default {
     Button,
   },
   computed: {
-    tip() { return this.getTip(); },
-    total() { return this.getTotal(); },
+    tip() { return Number(this.getTip()).toFixed(2); },
+    total() { return Number(this.getTotal()).toFixed(2); },
     disable() {
       return this.tip == 0 && this.total == 0
     },
