@@ -11,13 +11,14 @@
   - Calculate the correct tip and total cost of the bill per person 
 
 ## run locally
-```sh
+```bash
 yarn install
 
 yarn serve
 ```
 
 ### Run your unit tests
-```sh
+```bash
 yarn test:unit
-``
+
+```
