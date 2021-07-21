@@ -19,16 +19,17 @@ export default {
 
 <style lang="scss">
 .card {
-  margin-top: 39px;
+  max-width: 57.5rem;
+  margin-top: 5.375rem;
   border-radius: var(--border-radius);
   background-color: var(--white);
-  padding: var(--bg-spacer);
-  color: #5E7A7D;
+  padding: var(--md-spacer);
+  color: var(--dark-grayish-cyan);
 
-  @media (min-width: 50em) {
+  @media (min-width: 40em) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 50px;
+    grid-gap: 3rem;
   }
 }
 </style>

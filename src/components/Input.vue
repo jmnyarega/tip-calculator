@@ -57,52 +57,54 @@ export default {
 <style lang="scss">
 .custom {
     font-weight: var(--fw-bold);
+
     .info {
       display: flex;
       justify-content: space-between;
-      .span { padding-bottom: 12px; }
-      .error { color: #E17457; }
+      .span { padding-bottom: var(--sm-spacer); }
+      .error { color: var(--light-red); }
     }
+
     &__input {
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    overflow-x: hidden;
+      padding: calc(var(--sm-1-spacer) / 5) var(--sm-spacer);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    border: 2px solid transparent;
-    border-radius: calc(var(--border-radius) / 2);
-    background-color: #F3F9FA;
-    color: var(--very-dark-cyan);
-    font-weight: var(--fw-bold);
+      border: 2px solid transparent;
+      border-radius: calc(var(--border-radius) / 3);
+      background-color: var(--v-light-grayish-cyan);
+      color: var(--very-dark-cyan);
+      font-weight: var(--fw-bold);
 
-    input {
-      font-size: var(--fs-h3);
-      font-weight: inherit;
-      font-family: inherit;
-      border: none;
-      outline: none;
-      text-align: right;
-      background-color: inherit;
-      color: inherit;
+      input {
+        font-size: var(--fs-h2);
+        font-weight: inherit;
+        font-family: inherit;
+        border: none;
+        outline: none;
+        text-align: right;
+        background-color: inherit;
+        color: inherit;
 
-      width: 85%;
+        width: 85%;
 
-      &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+
+        -moz-appearance: none;
       }
 
-      -moz-appearance: none;
-    }
-    &:not(.custom__input--error):focus-within,
-    &:not(.custom__input--error):hover {
-      border: 2px solid var(--strong-cyan);
-    }
+      &:not(.custom__input--error):focus-within,
+      &:not(.custom__input--error):hover {
+        border: 2px solid var(--strong-cyan);
+      }
 
-    &--error {
-      border: 2px solid #E17457;
+      &--error {
+        border: 2px solid var(--light-red);;
+      }
     }
-  }
 }
 </style>

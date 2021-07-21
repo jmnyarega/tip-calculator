@@ -50,20 +50,20 @@ export default {
 
 <style lang="scss">
 .screen {
-  margin-top: 32px;
-  border-radius:  15px;
+  margin-top: var(--md-spacer);
+  border-radius:  0.9375rem;
   background-color: var(--very-dark-cyan);
-  padding: 32px;
-  color: #5E7A7D;
+  padding: var(--bg-spacer);
   @media (min-width: 50em) {
-    margin-top: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 0;
   }
 
   .tip, .total {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 
     &__label {
@@ -73,38 +73,38 @@ export default {
   }
 
   .total {
-    margin-top: 30px;
+    margin-top: var(--md-spacer);
     &__amount {
-      font-size: var(--fs-h2);
+      font-size: var(--fs-h1);
       font-weight: var(--fw-bold);
-      color: #26C2AE;
+      color: var(--strong-cyan);
     }
     @media (min-width: 50em) {
-      margin-top: 62px;
+      margin-top: var(--xl-spacer);
     }
   }
 
   .tip__amount {
-    font-size: var(--fs-h2);
+    font-size: var(--fs-h1);
     font-weight: var(--fw-bold);
-    color: #26C2AE;
+    color: var(--strong-cyan);
   }
 
   &__cta {
-    grid-area: d;
     .button {
       text-transform: uppercase;
-      margin-top: 22px;
-      color: #00474B;
-      background-color: #26C2AE;
+      margin-top: var(--md-spacer);
+      color: var(--very-dark-cyan);
+      background-color: var(--strong-cyan);
+
       &:disabled {
-        background-color: #0D686D;
+        background-color: var(--dark-grayish-cyan-1);
       }
 
       &:hover:enabled, &:focus:enabled {
-        color: #26C2AE;
-        background-color: #00474B;
-        border: 2px solid #26C2AE;
+        color: var(--strong-cyan);
+        background-color: var(--very-dark-cyan);
+        border: 2px solid var(--strong-cyan);
       }
     }
   }

@@ -19,7 +19,7 @@ export default {
 .button {
   color: var(--white);
   text-align: center;
-  font-size: var(--fs-h3);
+  font-size: var(--fs-h2);
   font-weight: var(--fw-bold);
   font-family: inherit;
   border: none;
@@ -27,19 +27,15 @@ export default {
 
   display: block;
   width: 100%;
-  padding: calc(var(--sm-spacer));
+  padding: calc(var(--sm-1-spacer) / 4);
   border: 2px solid transparent;
   border-radius: calc(var(--border-radius) / 3);
   background-color: var(--very-dark-cyan);
 
   cursor: pointer;
-
   transition: all 350ms linear;
-
   &:hover, &:focus {
     background-color: var(--strong-cyan);
   }
 }
-
-
 </style>

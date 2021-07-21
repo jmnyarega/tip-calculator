@@ -17,10 +17,12 @@ export default new Vuex.Store({
   mutations: {
     setAmount(state) {
       const { bill, number, custom, percentage } = state;
-      console.log(percentage);
       if (bill > 0 && number > 0 && (custom > 0 || percentage)) {
         state.total = calculator(state)?.amount;
         state.tip = calculator(state)?.tip;
+      } else {
+        state.total = 0;
+        state.tip = 0;
       }
     },
     reset(state) {
@@ -35,12 +37,12 @@ export default new Vuex.Store({
       state.custom = '';
       state.percentage = Number(value);
     },
-    setBill(state, value) {
-      state.bill = Number(value);
-    },
     setCustom(state, value) {
       state.percentage = 0;
       state.custom = Number(value);
+    },
+    setBill(state, value) {
+      state.bill = Number(value);
     },
     setNumber(state, value) {
       state.number = Number(value);

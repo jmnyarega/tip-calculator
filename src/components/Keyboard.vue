@@ -63,7 +63,7 @@ export default {
     };
   },
   computed: {
-    percent() { return this.getPercent },
+    percent() { return this.getPercent() },
     bill() { return this.getBill() },
     custom() { return this.getCustom() },
     number() { return this.getNumber() },
@@ -71,8 +71,8 @@ export default {
   methods: {
     handleClick(key) {
       this.setPercent(key);
-      this.calculate();
       this.validate();
+      this.calculate();
     },
     validate() {
       if (+this.number <= 0) this.error = 'Can\'t be zero';
@@ -86,11 +86,17 @@ export default {
       this.calculate();
     },
     selected(percentage) {
-      return percentage.value === this.getPercent()
+      return percentage.value === this.percent
         ? 'select-tip__cta--selected'
         : '';
     },
-    ...mapActions(['calculate', 'setBill', 'setPercent', 'setNumber', 'setCustom']),
+    ...mapActions([
+      'calculate',
+      'setBill',
+      'setPercent',
+      'setNumber',
+      'setCustom',
+    ]),
     ...mapGetters(['getBill', 'getPercent', 'getNumber', 'getCustom']),
   },
 };
@@ -98,21 +104,21 @@ export default {
 
 <style lang="scss">
 .select-tip {
-  margin-top: 38px;
+  margin-top: var(--bg-spacer);
 
   &__cta {
-    margin-top: 22px;
+    margin-top: var(--sm-2-spacer);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 16px;
-    grid-template-areas: "a b";
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: var(--sm-1-spacer);
+    align-items: center;
     @media (min-width: 60em) {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
     }
 
     button:hover, button:focus, &--selected {
-      background-color: #26C2AE;
-      color: #00474B;
+      background-color: var(--strong-cyan);
+      color: var(--very-dark-cyan);
     }
   }
 
@@ -120,13 +126,9 @@ export default {
     text-transform: capitalize;
     font-weight: var(--fw-bold);
   }
-
-  .custom__input {
-    padding: var(--sm-spacer);
-  }
 }
 
 .people {
-  margin-top: 38px;
+  margin-top: var(--bg-1-spacer);
 }
 </style>
