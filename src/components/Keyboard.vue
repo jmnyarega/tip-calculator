@@ -71,25 +71,24 @@ export default {
   methods: {
     handleClick(key) {
       this.setPercent(key);
-      this.validate(this.number)
       this.calculate();
+      this.validate();
     },
-    validate(value) {
-      if (Number(value) <= 0) {
-        this.error = 'Can\'t be zero';
-      } else {
-        this.error = '';
-      }
+    validate() {
+      if (+this.number <= 0) this.error = 'Can\'t be zero';
+      else this.error = '';
     },
     handleChange(name, value) {
       if (name === 'bill') this.setBill(value);
       if (name === 'custom') this.setCustom(value);
       if (name === 'number') this.setNumber(value);
-      this.validate(value);
+      if (name === 'number' || name === 'custom') this.validate();
       this.calculate();
     },
     selected(percentage) {
-      return percentage.value === this.getPercent() ? 'select-tip__cta--selected' : '';
+      return percentage.value === this.getPercent()
+        ? 'select-tip__cta--selected'
+        : '';
     },
     ...mapActions(['calculate', 'setBill', 'setPercent', 'setNumber', 'setCustom']),
     ...mapGetters(['getBill', 'getPercent', 'getNumber', 'getCustom']),
@@ -105,9 +104,11 @@ export default {
     margin-top: 22px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: baseline;
     grid-gap: 16px;
     grid-template-areas: "a b";
+    @media (min-width: 60em) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
 
     button:hover, button:focus, &--selected {
       background-color: #26C2AE;

@@ -26,9 +26,9 @@ export default new Vuex.Store({
     reset(state) {
       state.tip = 0;
       state.total = 0;
-      state.bill = 0;
-      state.custom = 0;
-      state.number = 0;
+      state.bill = '';
+      state.custom = '';
+      state.number = '';
       state.percentage = 0;
     },
     setPercent(state, value) {
