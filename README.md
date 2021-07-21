@@ -1,34 +1,23 @@
 # tip-calculator-app
 
-## Project setup
-```
-yarn install
-```
+- This is a solution to the [Tip calculator app challenge on Frontend
+  Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you
+  improve your coding skills by building realistic projects.
 
-### Compiles and hot-reloads for development
-```
+- Users should be able to:
+
+  - View the optimal layout for the app depending on their device's screen size
+  - See hover states for all interactive elements on the page
+  - Calculate the correct tip and total cost of the bill per person 
+
+## run locally
+```sh
+yarn install
+
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
 ### Run your unit tests
-```
+```sh
 yarn test:unit
-```
-
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+``
