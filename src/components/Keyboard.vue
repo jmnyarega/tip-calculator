@@ -26,17 +26,15 @@
         />
       </div>
     </div>
-    <div class="number">
-      <Input
-        label="Number of people"
-        icon="icon-person.svg"
-        placeholder="0"
-        :value="number"
-        name="number"
-        :error=error
-        @change="handleChange"
-      />
-    </div>
+    <Input
+      label="Number of people"
+      icon="icon-person.svg"
+      placeholder="0"
+      :value="number"
+      name="number"
+      :error=error
+      @change="handleChange"
+    />
   </div>
 </template>
 
@@ -105,7 +103,7 @@ export default {
 <style lang="scss">
 .keyboard {
   .select-tip {
-    margin-top: var(--bg-spacer);
+    margin: var(--bg-spacer) 0 var(--bg-1-spacer);
 
     &__cta {
       margin-top: var(--sm-2-spacer);
@@ -128,9 +126,5 @@ export default {
       font-weight: var(--fw-bold);
     }
   }
-}
-
-.number {
-  margin-top: var(--bg-1-spacer);
 }
 </style>
