@@ -90,13 +90,13 @@ export default {
         appearance: none;
 
         width: 85%;
-
+        
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
           -webkit-appearance: none;
+          margin: 0;
         }
-
-        -moz-appearance: none;
+        -moz-appearance: textfield;
       }
 
       &:not(.custom__input--error):focus-within,
