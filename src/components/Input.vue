@@ -88,7 +88,6 @@ export default {
         background-color: inherit;
         color: inherit;
         appearance: none;
-
         width: 85%;
         
         &::-webkit-outer-spin-button,
