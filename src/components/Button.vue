@@ -1,5 +1,5 @@
 <template>
-  <button :disabled=disabled class="button" @click="click()">
+  <button :disabled=disabled class="button" @click="clicked">
     {{value}}
   </button>
 </template>
@@ -11,6 +11,9 @@ export default {
     value: String,
     click: Function,
     disabled: Boolean,
+  },
+  methods: {
+    clicked() { this.$emit('clicked'); },
   },
 };
 </script>

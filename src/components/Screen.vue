@@ -20,7 +20,7 @@
     </div>
 
     <div class="screen__cta">
-      <Button value="reset" :disabled="disable" :click="handleClick" />
+      <Button value="reset" :disabled="disable" @clicked="handleClick" />
     </div>
   </div>
 </template>

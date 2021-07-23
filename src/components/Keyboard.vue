@@ -15,12 +15,12 @@
           v-for="percentage in percentages"
           :key="percentage.key"
           :value="percentage.key"
-          :click="() => handleClick(percentage.value)"
-          :class="selected(percentage)"
+          :class="{'select-tip__cta--selected': selected(percentage.value)}"
+          @clicked="handleClick(percentage.value)"
         />
         <Input
           placeholder="Custom"
-          :value="String(custom)"
+          :value="custom"
           name="custom"
           @change="handleChange"
         />
@@ -31,8 +31,8 @@
       icon="icon-person.svg"
       placeholder="0"
       :value="number"
-      name="number"
       :error=error
+      name="number"
       @change="handleChange"
     />
   </div>
@@ -83,11 +83,6 @@ export default {
       if (name === 'number' || name === 'custom') this.validate();
       this.calculate();
     },
-    selected(percentage) {
-      return percentage.value === this.percent
-        ? 'select-tip__cta--selected'
-        : '';
-    },
     ...mapActions([
       'calculate',
       'setBill',
@@ -96,6 +91,7 @@ export default {
       'setCustom',
     ]),
     ...mapGetters(['getBill', 'getPercent', 'getNumber', 'getCustom']),
+    selected(value) { return value === this.percent; },
   },
 };
 </script>

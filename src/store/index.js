@@ -10,9 +10,9 @@ export default new Vuex.Store({
     tip: 0,
     total: 0,
     percentage: 0,
-    bill: '',
-    custom: '',
-    number: ''
+    bill: undefined,
+    custom: undefined,
+    number: undefined
   },
   mutations: {
     setAmount(state) {
@@ -28,13 +28,13 @@ export default new Vuex.Store({
     reset(state) {
       state.tip = 0;
       state.total = 0;
-      state.bill = '';
-      state.custom = '';
-      state.number = '';
+      state.bill = undefined;
+      state.custom = undefined;
+      state.number = undefined;
       state.percentage = 0;
     },
     setPercent(state, value) {
-      state.custom = '';
+      state.custom = 0;
       state.percentage = Number(value);
     },
     setCustom(state, value) {
@@ -72,9 +72,9 @@ export default new Vuex.Store({
   getters: {
     getTip: state => format(state.tip),
     getTotal: state => format(state.total),
-    getBill: state => String(state.bill),
-    getCustom: state => String(state.custom),
-    getNumber: state => String(state.number),
+    getBill: state => state.bill,
+    getCustom: state => state.custom,
+    getNumber: state => state.number,
     getPercent: state => state.percentage
   }
 });

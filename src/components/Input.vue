@@ -36,7 +36,7 @@ export default {
     icon: String,
     placeholder: String,
     name: String,
-    value: String,
+    value: Number,
     error: String,
     modelValue: {
       default: '',
