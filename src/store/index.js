@@ -34,7 +34,7 @@ export default new Vuex.Store({
       state.percentage = 0;
     },
     setPercent(state, value) {
-      state.custom = 0;
+      state.custom = undefined;
       state.percentage = Number(value);
     },
     setCustom(state, value) {
@@ -70,8 +70,8 @@ export default new Vuex.Store({
   },
   modules: {},
   getters: {
-    getTip: state => format(state.tip),
-    getTotal: state => format(state.total),
+    getTip: state => format(Number(state.tip).toFixed(2)),
+    getTotal: state => format(Number(state.total).toFixed(2)),
     getBill: state => state.bill,
     getCustom: state => state.custom,
     getNumber: state => state.number,
