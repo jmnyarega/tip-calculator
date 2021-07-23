@@ -96,12 +96,17 @@ export default {
           margin: 0;
         }
         -moz-appearance: textfield;
+
+        &::placeholder {
+          font-size: calc(var(--fs-base) + 0.25rem);
+        }
       }
 
       &:not(.custom__input--error):focus-within,
       &:not(.custom__input--error):hover {
         border: 2px solid var(--strong-cyan);
       }
+
 
       &--error {
         border: 2px solid var(--light-red);;
