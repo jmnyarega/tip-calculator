@@ -20,7 +20,7 @@ export default {
 <style lang="scss">
 .calculator {
   max-width: 57.5rem;
-  margin-top: 5.375rem;
+  margin-top: 5rem;
   border-radius: var(--border-radius);
   background-color: var(--white);
   padding: var(--md-spacer);
