@@ -1,13 +1,16 @@
 <template>
   <div class="screen">
 
+    <!--
+      React dangerously equivant to vue's v-html="rawHtml" (XSS) attacks - no sanitization
+    -->
     <div class="screen__display">
       <div class="tip">
         <div class="tip__label">
           <p>Tip Amount</p>
           <p>/ person </p>
         </div>
-        <div class="tip__amount">${{tip}}</div>
+        <div class="tip__amount">{{tip}}</div>
       </div>
 
       <div class="total">
@@ -15,7 +18,7 @@
           <p>Total</p>
           <p>/ person </p>
         </div>
-        <div class="total__amount">${{total}}</div>
+        <div class="total__amount">{{total}}</div>
       </div>
     </div>
 
@@ -34,6 +37,7 @@ export default {
     Button,
   },
   computed: {
+    // computed properties are cached based on their reactive dependencies.
     tip() { return this.getTip(); },
     total() { return this.getTotal(); },
     disable() {
@@ -41,6 +45,7 @@ export default {
     },
   },
   methods: {
+    // a method invocation will always run the function whenever a re-render happens.
     ...mapGetters(['getTip', 'getTotal']),
     ...mapActions(['reset']),
     handleClick() { this.reset(); },
@@ -81,6 +86,24 @@ export default {
     }
     @media (min-width: 50em) {
       margin-top: var(--xl-spacer);
+    }
+  }
+
+  .tip, .total {
+      &__amount {
+      display: flex;
+      column-gap: 0.05rem;
+      align-items: center;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        height: 22px;
+        width: 15px;
+        background-image: url(../assets/icon-dollar.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
     }
   }
 

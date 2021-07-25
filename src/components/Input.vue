@@ -4,8 +4,8 @@
       <label v-if="label" class="label" :for="name"> {{label}} </label>
       <span v-if="error" class="error">{{error}}</span>
     </div>
-    <div class="custom__input" :class="{'custom__input--error': this.error}">
-      <img v-if="icon" :src="require(`../assets/${icon}`)" alt="$" >
+    <div :class="[{'custom__input--error': this.error}, 'custom__input']">
+      <img v-if="icon" :src="require(`../assets/${icon}`)" alt="" >
       <input
         :id="name"
         min="0"

@@ -1,20 +1,22 @@
 <template>
   <main id="app">
     <img src="../assets/logo.svg" alt="tip-calculator - Home" class="logo">
-    <Card />
+    <card />
   </main>
 </template>
 
 <script>
-import Card from '../components/Card.vue';
+import card from '../components/Card.vue';
 
 import '../css/index.css';
 
 export default {
   name: 'Home',
-  components: {
-    Card,
-  },
+  components: { card, },
+  beforeCreate() { console.log('Before created...') }, // before the vue instance has been created
+  created() { console.log('created...') }, // after the vue instance has been created
+  beforeMount() { console.log('Before mount...') }, // before mount < attatched to DOM
+  mounted() { console.log('mounted...') }, // after mount < attatched to DOM
 };
 </script>
 

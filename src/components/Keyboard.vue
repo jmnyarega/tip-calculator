@@ -1,6 +1,6 @@
 <template>
   <div class="keyboard">
-    <Input
+    <custom_input
       label="Bill"
       icon="icon-dollar.svg"
       name="bill"
@@ -11,14 +11,14 @@
     <div class="select-tip">
       <p class="select-tip__text">Select tip %</p>
       <div class="select-tip__cta">
-        <Button
+        <custom_button
           v-for="percentage in percentages"
           :key="percentage.key"
           :value="percentage.key"
           :class="{'select-tip__cta--selected': selected(percentage.value)}"
           @clicked="handleClick(percentage.value)"
         />
-        <Input
+        <custom_input
           placeholder="Custom"
           :value="custom"
           name="custom"
@@ -26,7 +26,7 @@
         />
       </div>
     </div>
-    <Input
+    <custom_input
       label="Number of people"
       icon="icon-person.svg"
       placeholder="0"
@@ -40,14 +40,17 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import Input from './Input.vue';
-import Button from './Button.vue';
+import custom_input from './Input.vue';
+import custom_button from './Button.vue';
 
 export default {
   components: {
-    Input,
-    Button,
+    custom_input,
+    custom_button,
   },
+  beforeUpdate() { console.log("before update") }, // before state update
+  updated() { console.log("updated") }, // on state update
+  destroyed() { console.log('destroyed...') }, // called if the app is killed.
   data() {
     return {
       error: '',

@@ -1,18 +1,18 @@
 <template>
   <div class="calculator">
-    <Keyboard />
-    <Screen />
+    <keyboard />
+    <screen />
   </div>
 </template>
 
 <script>
-import Keyboard from './Keyboard.vue';
-import Screen from './Screen.vue';
+import keyboard from './Keyboard.vue';
+import screen from './Screen.vue';
 
 export default {
   components: {
-    Keyboard,
-    Screen,
+    keyboard,
+    screen,
   }
 }
 </script>
